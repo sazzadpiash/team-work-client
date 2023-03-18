@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/PublicRoutes';
+import AuthProvider from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 
